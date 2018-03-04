@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="lightseagreen">#20b2aa</color><!--亮海蓝色 -->
+    <color name="black">#000000</color><!-- 黑色 -->
+</resources>

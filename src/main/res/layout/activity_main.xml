@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <fragment
+        android:name="com.TrictSystem.Fragment.FirstFragment"
+        android:id="@+id/fragment1"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent"
+        />
+    <fragment
+        android:name="com.TrictSystem.Fragment.SecondFragment"
+        android:id="@+id/fragment2"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent"
+        />
+    <fragment
+        android:name="com.TrictSystem.Fragment.ThirdFragment"
+        android:id="@+id/fragment3"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent"
+        />
+
+    <fragment
+        android:name="com.TrictSystem.Fragment.ForFragment"
+        android:id="@+id/fragment4"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent"
+
+        />
+
+    <include layout="@layout/tabfoot"/>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+package com.TrictSystem.Activity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import com.TrictSystem.Service.DemoIntentService;
+import com.TrictSystem.Service.DemoPushService;
+import com.igexin.sdk.PushManager;
+
+/**
+ * Created by smile_raccoon on 2017/12/18.
+ */
+
+public abstract class BaseActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PushManager.getInstance().initialize(this.getApplicationContext(), DemoPushService.class);
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), DemoIntentService.class);
+        setContentView(getLayout());
+        initView();
+        initData();
+    }
+
+    /**
+     * 输入信息的非空判断
+     * @param str_1 参数1
+     * @param str_2 参数2
+     */
+    public int Judge_empty(Context context,String str_1,String str_2,String str_1_name,String str_2_name){
+
+        if(str_1.equals("")){
+            showToask(context,str_1_name+"不能为空哦!",3);
+            return -1;
+        }else if(str_2.equals("")){
+            showToask(context,str_2_name+"不能为空哦!",3);
+            return -1;
+        }else{
+            return 1;
+        }
+    }
+
+    /**
+     * Toask 公共Toask方法
+     * @param context
+     * @param message
+     * @param during
+     */
+    public void showToask(Context context,String message,int during){
+        Toast.makeText(context,message,during).show();
+    }
+
+    public abstract void initView();
+    public abstract void initData();
+    public abstract int getLayout();
+
+}
