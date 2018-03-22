@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fratext1"
-            android:text="任务"
+            android:text="微信"
             android:textColor="@color/black"
             />
     </LinearLayout>

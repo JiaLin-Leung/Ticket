@@ -90,7 +90,15 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 登录方法
+     * @param username 用户名
+     * @param password 密码
+     * @param i
+     */
     private void user_login(String username, String password, int i) {
+        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(intent);
         Map<String, String> params = new HashMap<String, String>();
         params.put("username", username);
         params.put("password", password);
@@ -135,6 +143,11 @@ public class LoginActivity extends BaseActivity {
                 , params);
     }
 
+    /**
+     * 保存用户数据到手机本地SP
+     * @param user
+     * @throws IOException
+     */
     public void save_info(User user) throws IOException {
 
         SpUtils.save(LoginActivity.this,"user_name",user.getUser_bean().getUsername());

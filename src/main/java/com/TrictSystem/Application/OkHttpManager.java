@@ -50,7 +50,10 @@ public class OkHttpManager {
         handler = new Handler(Looper.getMainLooper());
     }
 
-    //创建 单例模式（OkHttp官方建议如此操作）
+    /**
+     * 获得单一实例【Okhttp官方建议】
+     * @return OkHttpManager单一实例
+     */
     public static OkHttpManager getInstance() {
         if (mOkHttpManager == null) {
             mOkHttpManager = new OkHttpManager();
@@ -58,15 +61,21 @@ public class OkHttpManager {
         return mOkHttpManager;
     }
 
-    /***********************
-     * 对外公布的可调方法
-     ************************/
-
+    /**
+     * 对外GET方法
+     * @param url url地址
+     * @param callBack 回调函数
+     */
     public void getRequest(String url, final BaseCallBack callBack) {
         Request request = buildRequest(url, null, HttpMethodType.GET);
         doRequest(request, callBack);
     }
 
+    /**
+     * 对外POST方法
+     * @param url POST 地址
+     * @param callBack 回调函数
+     */
     public void postRequest(String url, final BaseCallBack callBack, Map<String, String> params) {
         Log.e("ljl---",url);
         Log.e("ljl---",params.toString());
@@ -74,6 +83,14 @@ public class OkHttpManager {
         doRequest(request, callBack);
     }
 
+    /**
+     * 上传单一图片
+     * @param url  上传图片地址
+     * @param callback 回调函数
+     * @param file 文件【file类型】
+     * @param fileKey 文件key值
+     * @param params
+     */
     public void postUploadSingleImage(String url, final BaseCallBack callback, File file, String fileKey, Map<String, String> params) {
         Param[] paramsArr = fromMapToParams(params);
 
@@ -117,7 +134,14 @@ public class OkHttpManager {
         doRequest(request, callback);
     }
 
-    //构造上传图片 Request
+    /**
+     * 构造上传图片Request
+     * @param url 上传图片地址
+     * @param files 文件【file类型】
+     * @param fileKeys 文件 key值
+     * @param params
+     * @return
+     */
     private Request buildMultipartFormRequest(String url, File[] files, String[] fileKeys, Param[] params) {
         params = validateParam(params);
         MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
@@ -230,7 +254,13 @@ public class OkHttpManager {
 
     }
 
-    //创建 Request对象
+    /**
+     * 创建 Request对象
+     * @param url
+     * @param params
+     * @param methodType
+     * @return
+     */
     private Request buildRequest(String url, Map<String, String> params, HttpMethodType methodType) {
 
         Request.Builder builder = new Request.Builder();
@@ -244,7 +274,11 @@ public class OkHttpManager {
         return builder.build();
     }
 
-    //构建请求所需的参数表单
+    /**
+     * 构建请求所需的参数表单
+     * @param params 需要传给服务器的数据，键值对形式
+     * @return
+     */
     private RequestBody buildFormData(Map<String, String> params) {
         FormBody.Builder builder = new FormBody.Builder();
 //        builder.add("platform", "android");

@@ -16,6 +16,9 @@ import com.igexin.sdk.PushManager;
 public abstract class BaseActivity extends Activity {
 
     @Override
+    /**
+     * 生命周期第一步
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PushManager.getInstance().initialize(this.getApplicationContext(), DemoPushService.class);
@@ -45,16 +48,28 @@ public abstract class BaseActivity extends Activity {
 
     /**
      * Toask 公共Toask方法
-     * @param context
-     * @param message
-     * @param during
+     * @param context 上下文
+     * @param message 需要展示的信息
+     * @param during 展示时间
      */
     public void showToask(Context context,String message,int during){
         Toast.makeText(context,message,during).show();
     }
 
+    /**
+     * 初始化控件方法
+     */
     public abstract void initView();
+
+    /**
+     * 初始化数据方法
+     */
     public abstract void initData();
+
+    /**
+     * 布局文件引入方法
+     * @return
+     */
     public abstract int getLayout();
 
 }

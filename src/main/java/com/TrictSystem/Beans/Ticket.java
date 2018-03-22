@@ -9,13 +9,31 @@ import java.util.List;
 
 public class Ticket implements Serializable {
 
+    /**
+     * 数据库返回信息
+     */
     private String message;
+    /**
+     * 是否有下一页
+     */
     private String next;
+    /**
+     * 响应值
+     */
     private String response;
+    /**
+     * 错误响应信息
+     */
     private String error;
+    /**
+     * LIST形式数据返回
+     */
     private List<Ticket_Bean> data;
 
     @Override
+    /**
+     * tostring方法
+     */
     public String toString() {
         return "Ticket{" +
                 "message='" + message + '\'' +
@@ -26,59 +44,133 @@ public class Ticket implements Serializable {
                 '}';
     }
 
+    /**
+     * 获得返回信息
+     * @return string类型
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * 设置返回信息
+     * @param message 将数据库返回信息设置到javabean
+     */
     public void setMessage(String message) {
         this.message = message;
     }
 
+    /**
+     * 获得下一页标记
+     * @return  字符串1 or 0 or other
+     */
     public String getNext() {
         return next;
     }
 
+    /**
+     * 设置下一页标记
+     * @param next
+     */
     public void setNext(String next) {
         this.next = next;
     }
 
+    /**
+     * 获得返回状态值
+     * @return 200 or 500 or other
+     */
     public String getResponse() {
         return response;
     }
 
+    /**
+     * 设置返回状态值
+     * @param response
+     */
     public void setResponse(String response) {
         this.response = response;
     }
 
+
+    /**
+     * 获得错误信息
+     * @return
+     */
     public String getError() {
         return error;
     }
 
+    /**
+     * 设置错误信息
+     * @param error
+     */
     public void setError(String error) {
         this.error = error;
     }
 
+    /**
+     * 获得从服务器获得的lIST类型数据
+     * @return Ticket_Bean类型的LIST数据
+     */
     public List<Ticket_Bean> getData() {
         return data;
     }
 
+    /**
+     * 设置数据
+     * @param data
+     */
     public void setData(List<Ticket_Bean> data) {
         this.data = data;
     }
 
     public class Ticket_Bean implements Serializable{
 
+        /**
+         * 添加时间
+         */
         private String add_time;
+        /**
+         * 任务开始时间
+         */
         private String begin_time;
+        /**
+         * 域名
+         */
         private String domain;
+        /**
+         * 任务结束时间
+         */
         private String end_time;
         private String env_id;
+        /**
+         * 指向人ID
+         */
         private String from_user_id;
+        /**
+         * 指向人用户名
+         */
         private String from_user_name;
+        /**
+         * 状态值
+         */
         private String status_code;
+        /**
+         * 任务ID
+         */
         private String id;
+        /**
+         * 任务状态
+         */
         private String status;
+        /**
+         * 任务类型
+         */
         private String type;
+        /**
+         * URL
+         */
         private String url;
 
         @Override

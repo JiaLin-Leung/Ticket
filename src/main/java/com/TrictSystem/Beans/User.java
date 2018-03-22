@@ -8,23 +8,59 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+    /**
+     * 数据库返回信息
+     */
     private String message;
+    /**
+     * 是否有下一页
+     */
     private String next;
+    /**
+     * 响应值
+     */
     private String response;
+    /**
+     * 错误响应信息
+     */
     private String error;
+    /**
+     * 用户对象
+     */
     private User_bean data;
 
     public class User_bean implements Serializable{
+        /**
+         * 用户名
+         */
         private String username;
+        /**
+         * 用户ID
+         */
         private String user_id;
+        /**
+         * 用户手机号
+         */
         private String mobile;
         private String token_expired;
+        /**
+         * 是否是管理员
+         */
         private String is_active;
+        /**
+         * token
+         */
         private String access_token;
         private String proj_ids;
         private String is_supper;
         private String role_id;
+        /**
+         * 用户昵称
+         */
         private String nickname;
+        /**
+         * 用户邮箱
+         */
         private String email;
         private String password_hash;
 

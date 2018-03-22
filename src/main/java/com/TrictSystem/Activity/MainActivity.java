@@ -54,10 +54,10 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
         setfragment();
         setlinearLayouts();
         settextview();
-        Intent intent=getIntent();
-        username = intent.getStringExtra("user_name");
-        user_id = intent.getStringExtra("user_id");
-        nickname = intent.getStringExtra("nickname");
+//        Intent intent=getIntent();
+//        username = intent.getStringExtra("user_name");
+//        user_id = intent.getStringExtra("user_id");
+//        nickname = intent.getStringExtra("nickname");
         //创建手势检测器
         detector=new GestureDetector(this);
 
@@ -77,7 +77,10 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    /**初始化fragment*/
+
+    /**
+     * 初始化Fragment
+     */
     public void setfragment()
     {
         fragments=new Fragment[4];
@@ -89,7 +92,10 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
                 .show(fragments[0]).commit();
 
     }
-    /**初始化linerlayout*/
+
+    /**
+     * 初始化linerlayout
+     */
     public void setlinearLayouts()
     {
         linearLayouts=new LinearLayout[4];
@@ -99,7 +105,10 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
         linearLayouts[3]=(LinearLayout)findViewById(R.id.lay4);
         linearLayouts[0].setBackgroundResource(R.drawable.lay_select_bg);
     }
-    /**初始化textview*/
+
+    /**
+     * 初始化textview
+     */
     public void settextview()
     {
         textViews=new TextView[4];
@@ -109,7 +118,11 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
         textViews[3]=(TextView)findViewById(R.id.fratext4);
         textViews[0].setTextColor(getResources().getColor(R.color.lightseagreen));
     }
-    /**点击底部linerlayout实现切换fragment的效果*/
+
+    /**
+     * 点击底部linerlayout实现切换fragment的效果
+     * @param v 控件
+     */
     public void LayoutOnclick(View v)
     {
         resetlaybg();//每次点击都重置linearLayouts的背景、textViews字体颜色
@@ -146,7 +159,10 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
                 break;
         }
     }
-    /**重置linearLayouts、textViews*/
+
+    /**
+     * 重置linearLayouts、textViews
+     */
     public void resetlaybg()
     {
         for(int i=0;i<=3;i++)
@@ -169,7 +185,14 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
         return false;
     }
 
-    /**滑动切换效果的实现*/
+    /**
+     * 滑动切换效果的实现方法
+     * @param arg0
+     * @param arg1
+     * @param arg2
+     * @param arg3
+     * @return
+     */
     @Override
     public boolean onFling(MotionEvent arg0, MotionEvent arg1, float arg2,
                            float arg3) {
@@ -239,12 +262,18 @@ public class MainActivity extends FragmentActivity implements OnGestureListener
     }
 
     @Override
+    /**
+     * 长按方法
+     */
     public void onLongPress(MotionEvent arg0) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
+    /**
+     * 滑动时方法
+     */
     public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2,
                             float arg3) {
         // TODO Auto-generated method stub
